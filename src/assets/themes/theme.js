@@ -1,6 +1,6 @@
 import { createTheme } from '@mui/material/styles';
 
-export const theme = createTheme({
+export  const theme = createTheme({
   palette: {
     tomato: '#FF6155',
     darkSlateGrey: '#242742',
@@ -8,8 +8,13 @@ export const theme = createTheme({
     white: '#FFFFFF',
   },
   breakpoints: {
-    sm: 375,
-    lg: 1440,
+    values: {
+        xs: 0,
+        sm: 375,
+        md: 600,
+        lg: 1440,
+        xl: 1538
+    }
   },
   typography: {
     h1: {
