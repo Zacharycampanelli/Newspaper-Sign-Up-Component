@@ -16,12 +16,19 @@ const FullScreenDialog = ({ onClose }) => {
 
   return (
     <Dialog open={true} fullScreen/*onClose={onClose}*/>
-        <Box >
+        <Box p="2rem" mt="5rem" position="relatie">
         {/* <SuccessIcon color="primary" /> */}
-     <Success />
-        <Typography variant="h1" component="h1" mt="2.5rem">Thanks for subscribing!</Typography>
-        <Typography variant="p" component="p" mt="2.5rem">A confirmation email has been sent to ash@loremcompany.com. Please open it and click the button inside to confirm your subscription</Typography>
-        <Button onClick={onClose}>dfs</Button>
+     <Success  />
+        <Typography variant="h1" component="h1" mt="1rem">Thanks for subscribing!</Typography>
+        <Typography variant="p" component="p" mt="0.5rem">A confirmation email has been sent to <strong>ash@loremcompany.com</strong>. Please open it and click the button inside to confirm your subscription</Typography>
+        <Button
+              variant="contained"
+              sx={{ backgroundColor: 'darkSlateGrey', width: '82%', borderRadius: '8px', mt: '1.5rem', position: 'absolute', bottom: '2rem'}}
+              onClick={onClose}
+            >
+                 <Typography variant="button" pt="18px" pb="14px">
+                    Dismiss message
+                    </Typography></Button>
         </Box>
     </Dialog>
   );
