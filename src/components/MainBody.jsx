@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Box, Button, Container, TextField, Typography, useMediaQuery, useTheme } from '@mui/material';
 import IllustrationMobile from '../assets/images/illustration-sign-up-mobile.svg';
 import IllustrationDesktop from '../assets/images/illustration-sign-up-desktop.svg';
@@ -7,6 +7,13 @@ import FullScreenDialog from './FullScreenDialog';
 
 const MainBody = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [email, setEmail] = useState('');
+  const [errMsg, setErrMsg] = useState('');
+
+  const [isError, setIsError] = useState(false)
+
+  const emailValidation = new RegExp('[a-z0-9]+@[a-z]+\.[a-z]{2,3}');
+ console.log(emailValidation)
   const theme = useTheme();
   const isLargeOrGreater = useMediaQuery(theme.breakpoints.up('lg'));
   const isSmallerThanLarge = useMediaQuery(theme.breakpoints.down('lg'));
@@ -18,6 +25,44 @@ const MainBody = () => {
   const handleCloseModal = () => {
     setIsOpen(false);
   };
+
+
+  const checkErrors = () => {
+    if(errMsg !== '') {
+      setIsError(true);
+    }
+     return true;
+  }
+
+
+  useEffect(() => {
+console.log(email)
+
+//  if(email.length === 0) {
+//   setErrMsg('Empty input')
+//  }
+
+  },[email])
+
+  const handleFormSubmit = () => {
+    // !emailValidation.test(email)} onSubmit={(e) => setEmail(e.target.value)
+    if(email.length === 0) {
+      setErrMsg('Empty Input')
+      setIsError(true)
+    }
+
+
+    else if (!emailValidation.test(email)) {
+      setErrMsg('The entered text is not valid email format')
+      setIsError(true)
+     }
+     
+     else {
+      setIsError(false)
+      setErrMsg('')
+      handleOpenModal()
+}
+  }
 
   return (
     <Container sx={{p: { sm: '0px', lg: '1rem'}, backgroundColor: { lg: 'charcoalGrey'}, width: { lg: '100%'}, height: {lg: '100vh'}, position: {lg: 'relative'}}}>
@@ -37,12 +82,24 @@ const MainBody = () => {
             <Typography variant="h6" component="h4" mb="0.4rem">
               Email address
             </Typography>
-            <TextField fullWidth label="email@company.com" variant="outlined" />
+            <TextField fullWidth  variant="outlined" error={isError} helperText={errMsg} required onChange={(e) => setEmail(e.target.value)} defaultValue={email} 
+            sx={{'&.MuiFormControl-root:has(.Mui-error)': {
+              // if a child of FormControl has class Mui-error apply css to FormControl
+              border: '1px solid tomato',
+              backgroundColor: 'backgroundRed'
+            },
+            '& .MuiFormHelperText-root' : {
+              position : 'absolute',
+              top : '-1.5rem',
+              right: 0
+          }}} />
 
             <Button
+            type="button"
               variant="contained"
               sx={{ backgroundColor: 'darkSlateGrey', width: '100%', borderRadius: '8px', mt: '1.5rem' }}
-              onClick={handleOpenModal}
+              onClick={handleFormSubmit}
+
             >
               <Typography variant="button" pt="18px" pb="14px">
                 Subscribe to monthly newsletter
