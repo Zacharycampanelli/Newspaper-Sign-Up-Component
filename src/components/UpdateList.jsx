@@ -8,21 +8,21 @@ const UpdateList = () => {
 
 
   return (
-      <List sx={{marginTop: "1rem"}}> 
-        <ListItem sx={{marginLeft: "-1rem" }}>
-          <ListItemIcon sx={{marginTop: "-1rem"}}>
+      <List sx={{mt: "1rem"}}> 
+        <ListItem sx={{ml: "-1rem", mb: {lg: "-1rem"}}}>
+          <ListItemIcon sx={{mt: {sm: "-1rem", lg: "0"}}}>
             <ListIcon />
           </ListItemIcon >
-           <ListItemText sx={{marginLeft: "-1rem"}} disableTypography primary={<Typography variant="p">Product discovery and building what matters</Typography>} />
+           <ListItemText sx={{ml: "-1rem"}} disableTypography primary={<Typography variant="p">Product discovery and building what matters</Typography>} />
         </ListItem>
-        <ListItem sx={{marginLeft: "-1rem" }}>
-          <ListItemIcon sx={{marginTop: "-1rem"}}>
+        <ListItem sx={{ml: "-1rem", mb: {lg: "-1rem"} }}>
+          <ListItemIcon sx={{mt: {sm: "-1rem", lg: "0"}}}>
             <ListIcon />
           </ListItemIcon>
-          <ListItemText sx={{marginLeft: "-1rem"}} disableTypography primary={<Typography variant="p">Measuring to ensure updates are a success</Typography>} />
+          <ListItemText sx={{ml: "-1rem"}} disableTypography primary={<Typography variant="p">Measuring to ensure updates are a success</Typography>} />
         </ListItem>
-        <ListItem sx={{marginLeft: "-1rem" }}>
-          <ListItemIcon sx={{marginTop: "0rem"}}>
+        <ListItem sx={{ml: "-1rem", mb: {lg: "-1rem"} }}>
+          <ListItemIcon sx={{mt: "0rem"}}>
             <ListIcon />
           </ListItemIcon>
           <ListItemText sx={{marginLeft: "-1rem"}} disableTypography primary={<Typography variant="p">And much more!</Typography> } />

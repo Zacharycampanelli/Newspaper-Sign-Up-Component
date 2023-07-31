@@ -1,11 +1,15 @@
 import { useState } from 'react';
-import { Box, Button, TextField, Typography } from '@mui/material';
+import { Box, Button, Container, TextField, Typography, useMediaQuery, useTheme } from '@mui/material';
 import IllustrationMobile from '../assets/images/illustration-sign-up-mobile.svg';
+import IllustrationDesktop from '../assets/images/illustration-sign-up-desktop.svg';
 import UpdateList from './UpdateList';
 import FullScreenDialog from './FullScreenDialog';
 
 const MainBody = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const theme = useTheme();
+  const isLargeOrGreater = useMediaQuery(theme.breakpoints.up('lg'));
+  const isSmallerThanLarge = useMediaQuery(theme.breakpoints.down('lg'));
 
   const handleOpenModal = () => {
     setIsOpen(true);
@@ -16,11 +20,13 @@ const MainBody = () => {
   };
 
   return (
-    <div>
-      <Box mb="2.5rem" sx={{ display: 'flex', flexDirection: { sm: 'column', lg: 'row-reverse' } }}>
-        <IllustrationMobile />
-        <Box ml="2rem">
-          <Typography variant="h1" component="h1" mt="2.5rem">
+    <Container sx={{p: { sm: '0px', lg: '1rem'}, backgroundColor: { lg: 'charcoalGrey'}, width: { lg: '100%'}, height: {lg: '100vh'}, position: {lg: 'relative'}}}>
+      <Box mb="2.5rem" sx={{ display: 'flex', flexDirection: { sm: 'column', lg: 'row-reverse' }, alignItems: { lg: 'center'}, justifyContent:{lg: 'center'}, width: { lg: '60%'}, backgroundColor: "white", ml: {lg: "auto"}, mr: {lg: "auto"}, position: {lg: 'absolute'}, top:{lg: '50%'}, left: {lg: '50%'}, transform: {lg: 'translate(-50%, -50%)'}, pr:{lg: "2rem"}, pl:{lg: "2rem"}, borderRadius: {lg: "36px"}, height: {lg: "66vh"} }}>
+        {isSmallerThanLarge && <IllustrationMobile />}
+        {isLargeOrGreater && <IllustrationDesktop />}
+        <Box ml="2rem" backgroundColor="white" sx={{ width: { lg: '60%'},}}> 
+
+          <Typography variant="h1" component="h1" sx={{ mt: {sm:"2.5rem", lg: "-2rem"}}}>
             Stay updated!
           </Typography>
           <Typography variant="p" component="p">
@@ -46,7 +52,7 @@ const MainBody = () => {
           </Box>
         </Box>
       </Box>
-    </div>
+    </Container>
   );
 };
 

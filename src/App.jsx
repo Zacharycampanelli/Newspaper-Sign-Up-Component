@@ -9,7 +9,7 @@ function App() {
   return (
     <ThemeProvider theme={theme} >
       <CssBaseline enableColorScheme />
-     <MainBody />
+     <MainBody sx={{backgroundColor: { lg: 'charcoalGrey'}}} />
     </ThemeProvider>
      
   )
