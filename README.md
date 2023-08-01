@@ -36,8 +36,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Zacharycampanelli/Newspaper-Sign-Up-Component](https://github.com/Zacharycampanelli/Newspaper-Sign-Up-Component)
+- Live Site URL: [campanelli-newspaper-signup.netlify.app](https://campanelli-newspaper-signup.netlify.app/)
 
 ## My process
 
