@@ -41,7 +41,7 @@ export default function BasicModal({ onClose, isOpen}) {
           <Typography id="modal-modal-description" variant="p" component="p" mt="0.5rem">A confirmation email has been sent to <strong>ash@loremcompany.com</strong>. Please open it and click the button inside to confirm your subscription</Typography>
           <Button
               variant="contained"
-              sx={{ backgroundColor: 'darkSlateGrey', width: '82%', borderRadius: '8px', position: 'absolute', bottom: '4.5rem'}}
+              sx={{ backgroundColor: 'darkSlateGrey', width: '82%', borderRadius: '8px', position: 'absolute', bottom: '4.5rem', ':hover': { background: 'linear-gradient(225deg, #FF6A3A, #FF527B)'}}}
               onClick={onClose}
             >
                  <Typography variant="button" pt="18px" pb="14px">

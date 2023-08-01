@@ -7,7 +7,9 @@ export  const theme = createTheme({
     darkSlateGrey: '#242742',
     charcoalGrey: '#36384D',
     white: '#FFFFFF',
-  },
+    gradientStart: '',
+    gradientEnd: '',
+},
   breakpoints: {
     values: {
         xs: 0,

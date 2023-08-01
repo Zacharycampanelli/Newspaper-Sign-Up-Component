@@ -78,12 +78,12 @@ const MainBody = () => {
               position : 'absolute',
               top : '-1.5rem',
               right: 0
-          }}} />
+          },  input: {cursor: 'pointer',}}} />
 
             <Button
             type="button"
               variant="contained"
-              sx={{ backgroundColor: 'darkSlateGrey', width: '100%', borderRadius: '8px', mt: '1.5rem' }}
+              sx={{ backgroundColor: 'darkSlateGrey', width: '100%', borderRadius: '8px', mt: '1.5rem', ':hover': { background: 'linear-gradient(225deg, #FF6A3A, #FF527B)'} }}
               onClick={handleFormSubmit}
 
             >
