@@ -39,7 +39,7 @@ const MainBody = () => {
 
 
     else if (!emailValidation.test(email)) {
-      setErrMsg('The entered text is not valid email format')
+      setErrMsg('Not valid email format')
       setIsError(true)
      }
      
