@@ -4,6 +4,7 @@ import IllustrationMobile from '../assets/images/illustration-sign-up-mobile.svg
 import IllustrationDesktop from '../assets/images/illustration-sign-up-desktop.svg';
 import UpdateList from './UpdateList';
 import FullScreenDialog from './FullScreenDialog';
+import BasicModal from './Modal';
 
 const MainBody = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,22 +28,7 @@ const MainBody = () => {
   };
 
 
-  const checkErrors = () => {
-    if(errMsg !== '') {
-      setIsError(true);
-    }
-     return true;
-  }
 
-
-  useEffect(() => {
-console.log(email)
-
-//  if(email.length === 0) {
-//   setErrMsg('Empty input')
-//  }
-
-  },[email])
 
   const handleFormSubmit = () => {
     // !emailValidation.test(email)} onSubmit={(e) => setEmail(e.target.value)
@@ -105,7 +91,8 @@ console.log(email)
                 Subscribe to monthly newsletter
               </Typography>
             </Button>
-            {isOpen && <FullScreenDialog onClose={handleCloseModal} />}
+            {isOpen && (isSmallerThanLarge && <FullScreenDialog onClose={handleCloseModal} />) }
+            {isOpen && (isLargeOrGreater && <BasicModal onClose={handleCloseModal} isOpen={isOpen} />) }
           </Box>
         </Box>
       </Box>

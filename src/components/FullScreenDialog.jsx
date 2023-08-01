@@ -26,7 +26,7 @@ const FullScreenDialog = ({ onClose }) => {
               sx={{ backgroundColor: 'darkSlateGrey', width: '82%', borderRadius: '8px', mt: '1.5rem', position: 'absolute', bottom: '2rem'}}
               onClick={onClose}
             >
-                 <Typography variant="button" pt="18px" pb="14px">
+                 <Typography variant="button" pt="1.5rem" pb="14px">
                     Dismiss message
                     </Typography></Button>
         </Box>
