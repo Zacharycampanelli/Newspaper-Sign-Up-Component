@@ -8,7 +8,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline enableColorScheme />
-      <MainBody sx={{ backgroundColor: { lg: 'charcoalGrey' } }} />
+      <MainBody sx={{ backgroundColor: { md: 'charcoalGrey' } }} />
       <Attribution />
     </ThemeProvider>
   );

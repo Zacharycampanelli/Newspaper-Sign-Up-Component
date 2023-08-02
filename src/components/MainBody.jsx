@@ -10,13 +10,12 @@ const MainBody = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [email, setEmail] = useState('');
   const [errMsg, setErrMsg] = useState('');
-
   const [isError, setIsError] = useState(false);
 
   const emailValidation = new RegExp('[a-z0-9]+@[a-z]+.[a-z]{2,3}');
   const theme = useTheme();
-  const isLargeOrGreater = useMediaQuery(theme.breakpoints.up('lg'));
-  const isSmallerThanLarge = useMediaQuery(theme.breakpoints.down('lg'));
+  const isMediumOrGreater = useMediaQuery(theme.breakpoints.up('md'));
+  const isSmallerThanMedium = useMediaQuery(theme.breakpoints.down('md'));
 
   const handleOpenModal = () => {
     setIsOpen(true);
@@ -43,38 +42,43 @@ const MainBody = () => {
   return (
     <Container
       sx={{
-        p: { sm: '0px', lg: '1rem' },
-        backgroundColor: { lg: 'charcoalGrey' },
-        width: { lg: '100%' },
-        height: { lg: '100vh' },
-        position: { lg: 'relative' },
+        p: { sm: '0px', md: '1rem' },
+        backgroundColor: { md: 'charcoalGrey' },
+        width: { md: '100vw' },
+        height: { md: '100vh' },
+        position: { md: 'relative' },
+        ml: { md: '0px'},
+        mr: { md: '0px'},
+        maxWidth: '100vw'
       }}
+      maxWidth={false}
     >
       <Box
         mb="2.5rem"
         sx={{
           display: 'flex',
-          flexDirection: { sm: 'column', lg: 'row-reverse' },
-          alignItems: { lg: 'center' },
-          justifyContent: { lg: 'center' },
-          width: { lg: '60%' },
+          flexDirection: { sm: 'column', md: 'row-reverse' },
+          alignItems: { md: 'center' },
+          justifyContent: { md: 'center' },
+          width: { md: '75%', lg: '60%' },
           backgroundColor: 'white',
-          ml: { lg: 'auto' },
-          mr: { lg: 'auto' },
-          position: { lg: 'absolute' },
-          top: { lg: '50%' },
-          left: { lg: '50%' },
-          transform: { lg: 'translate(-50%, -50%)' },
-          pr: { lg: '2rem' },
-          pl: { lg: '2rem' },
-          borderRadius: { lg: '36px' },
-          height: { lg: '66vh' },
+          ml: { md: 'auto' },
+          mr: { md: 'auto' },
+          position: { md: 'absolute' },
+          top: { md: '50%' },
+          left: { md: '50%' },
+          transform: { md: 'translate(-50%, -50%)' },
+          pr: { md: '2rem' },
+          pl: { md: '2rem' },
+          borderRadius: { md: '36px' },
+          height: { md: '80vh', lg: '77vh' },
+          
         }}
       >
-        {isSmallerThanLarge && <IllustrationMobile />}
-        {isLargeOrGreater && <IllustrationDesktop />}
-        <Box ml="2rem" backgroundColor="white" sx={{ width: { lg: '60%' } }}>
-          <Typography variant="h1" component="h1" sx={{ mt: { sm: '2.5rem', lg: '-2rem' } }}>
+        {isSmallerThanMedium && <IllustrationMobile width="100vw" height="auto" />}
+        {isMediumOrGreater && <IllustrationDesktop />}
+        <Box ml="2rem" backgroundColor="white" sx={{ width: { md: '60%' } }}>
+          <Typography variant="h1" component="h1" sx={{ mt: { sm: '2.5rem', md: '-2rem' } }}>
             Stay updated!
           </Typography>
           <Typography variant="p" component="p">
@@ -123,8 +127,8 @@ const MainBody = () => {
                 Subscribe to monthly newsletter
               </Typography>
             </Button>
-            {isOpen && isSmallerThanLarge && <FullScreenDialog onClose={handleCloseModal} />}
-            {isOpen && isLargeOrGreater && <BasicModal onClose={handleCloseModal} isOpen={isOpen} />}
+            {isOpen && isSmallerThanMedium && <FullScreenDialog onClose={handleCloseModal} />}
+            {isOpen && isMediumOrGreater && <BasicModal onClose={handleCloseModal} isOpen={isOpen} />}
           </Box>
         </Box>
       </Box>
